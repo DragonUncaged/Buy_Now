@@ -1,0 +1,17 @@
+[Unit]
+Description=buynow API
+Wants=mongod.service
+After=mongod.service
+
+[Service]
+ExecStart=/usr/bin/node -r dotenv/config app.js
+WorkingDirectory=/opt/buynow/api
+Type=simple
+Restart=always
+StandardOutput=append:/var/log/buynow.log
+StandardError=append:/var/log/buynow.log
+User=aelassas
+Group=aelassas
+
+[Install]
+WantedBy=multi-user.target

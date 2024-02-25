@@ -1,0 +1,17 @@
+[Unit]
+Description=buynow Frontend
+Wants=mongod.service
+After=mongod.service
+
+[Service]
+ExecStart=/usr/bin/npm run start
+WorkingDirectory=/opt/buynow/frontend
+Type=simple
+Restart=always
+StandardOutput=append:/var/log/buynow-frontend.log
+StandardError=append:/var/log/buynow-frontend.log
+User=aelassas
+Group=aelassas
+
+[Install]
+WantedBy=multi-user.target
